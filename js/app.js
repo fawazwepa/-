@@ -12,76 +12,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadMedicines() {
     allMedicines = [
-        {
-            id: 1,
-            name_ar: 'باراسيتامول',
-            name_en: 'Paracetamol',
-            manufacturer: 'Domina',
-            dosage: '500 ملغ',
-            quantity: 150,
-            price: 2.50,
-            expiry_date: '2026-12-31',
-            description: 'مسكن ألم وخافض حرارة',
-            bonus: '20%'
-        },
-        {
-            id: 2,
-            name_ar: 'أموكسيسيلين',
-            name_en: 'Amoxicillin',
-            manufacturer: 'Medico',
-            dosage: '250 ملغ',
-            quantity: 80,
-            price: 3.75,
-            expiry_date: '2026-10-15',
-            description: 'مضاد حيوي واسع الطيف',
-            bonus: '15%'
-        },
-        {
-            id: 3,
-            name_ar: 'فيتامين سي',
-            name_en: 'Vitamin C',
-            manufacturer: 'Celia',
-            dosage: '1000 ملغ',
-            quantity: 200,
-            price: 1.25,
-            expiry_date: '2027-06-30',
-            description: 'مكمل غذائي - تقوية المناعة',
-            bonus: '25%'
-        },
-        {
-            id: 4,
-            name_ar: 'أسبرين',
-            name_en: 'Aspirin',
-            manufacturer: 'Barakat',
-            dosage: '500 مل��',
-            quantity: 120,
-            price: 1.80,
-            expiry_date: '2026-11-20',
-            description: 'مسكن ألم - مميع الدم',
-            bonus: '10%'
-        },
-        {
-            id: 5,
-            name_ar: 'ميتفورمين',
-            name_en: 'Metformin',
-            manufacturer: 'Lama Pharma',
-            dosage: '500 ملغ',
-            quantity: 100,
-            price: 4.50,
-            expiry_date: '2026-09-10',
-            description: 'لعلاج السكري من النوع الثاني',
-            bonus: '18%'
-        }
+        { id: 1, name_ar: 'باراسيتامول', manufacturer: 'Domina', dosage: '500 ملغ', quantity: 150, price: 2.50, expiry_date: '2026-12-31', description: 'مسكن ألم وخافض حرارة', bonus: '20%' },
+        { id: 2, name_ar: 'أموكسيسيلين', manufacturer: 'Medico', dosage: '250 ملغ', quantity: 80, price: 3.75, expiry_date: '2026-10-15', description: 'مضاد حيوي واسع الطيف', bonus: '15%' },
+        { id: 3, name_ar: 'فيتامين سي', manufacturer: 'Celia', dosage: '1000 ملغ', quantity: 200, price: 1.25, expiry_date: '2027-06-30', description: 'مكمل غذائي - تقوية المناعة', bonus: '25%' },
+        { id: 4, name_ar: 'أسبرين', manufacturer: 'Barakat', dosage: '500 ملغ', quantity: 120, price: 1.80, expiry_date: '2026-11-20', description: 'مسكن ألم - مميع الدم', bonus: '10%' },
+        { id: 5, name_ar: 'ميتفورمين', manufacturer: 'Lama Pharma', dosage: '500 ملغ', quantity: 100, price: 4.50, expiry_date: '2026-09-10', description: 'لعلاج السكري من النوع الثاني', bonus: '18%' }
     ];
 }
 
 function loadManufacturers() {
     allManufacturers = [
-        { id: 1, name: 'Domina', name_ar: 'دومينا', color: '#1E90FF' },
-        { id: 2, name: 'Medico', name_ar: 'ميديكو', color: '#FF6B6B' },
-        { id: 3, name: 'Celia', name_ar: 'سيليا', color: '#51CF66' },
-        { id: 4, name: 'Barakat', name_ar: 'بركات', color: '#FFD700' },
-        { id: 5, name: 'Lama Pharma', name_ar: 'لاما فارما', color: '#9370DB' }
+        { name: 'Domina', name_ar: 'دومينا', color: '#1E90FF' },
+        { name: 'Medico', name_ar: 'ميديكو', color: '#FF6B6B' },
+        { name: 'Celia', name_ar: 'سيليا', color: '#51CF66' },
+        { name: 'Barakat', name_ar: 'بركات', color: '#FFD700' },
+        { name: 'Lama Pharma', name_ar: 'لاما فارما', color: '#9370DB' }
     ];
 }
 
@@ -90,12 +35,7 @@ function renderMedicines(medicinesToRender = allMedicines) {
     medicinesGrid.innerHTML = '';
 
     if (medicinesToRender.length === 0) {
-        medicinesGrid.innerHTML = `
-            <div class="no-results" style="grid-column: 1 / -1;">
-                <i class="fas fa-search"></i>
-                <p>لم يتم العثور على أدوية</p>
-            </div>
-        `;
+        medicinesGrid.innerHTML = '<div class="no-results" style="grid-column: 1 / -1;"><i class="fas fa-search"></i><p>لم يتم العثور على أدوية</p></div>';
         return;
     }
 
@@ -107,37 +47,24 @@ function renderMedicines(medicinesToRender = allMedicines) {
 
         const card = document.createElement('div');
         card.className = `medicine-card ${manufacturerClass}`;
-        
         card.innerHTML = `
             <div class="card-content">
                 <div class="card-header">
                     <span class="card-brand">${medicine.manufacturer}</span>
                     <span class="card-bonus">${medicine.bonus}</span>
                 </div>
-                
                 <h3 class="medicine-name">${medicine.name_ar}</h3>
                 <p class="medicine-description">${medicine.description}</p>
-                
                 <div class="medicine-details">
-                    <div class="detail-item">
-                        <span class="detail-label">التركيزة:</span>
-                        <span class="detail-value">${medicine.dosage}</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">الكمية:</span>
-                        <span class="detail-value">${medicine.quantity} وحدة</span>
-                    </div>
+                    <div class="detail-item"><span class="detail-label">التركيزة:</span><span>${medicine.dosage}</span></div>
+                    <div class="detail-item"><span class="detail-label">الكمية:</span><span>${medicine.quantity} وحدة</span></div>
                 </div>
-                
                 <div class="quantity-status ${stockStatus}">
                     <i class="fas ${stockStatus === 'in-stock' ? 'fa-check-circle' : stockStatus === 'low-stock' ? 'fa-exclamation-circle' : 'fa-times-circle'}"></i>
                     <span>${stockText}</span>
                 </div>
-                
                 <div class="card-footer">
-                    <div class="medicine-price">
-                        ${medicine.price.toFixed(2)}<span class="price-currency"> ر.ي</span>
-                    </div>
+                    <div class="medicine-price">${medicine.price.toFixed(2)} <span style="font-size: 0.875rem;">ر.ي</span></div>
                     <button class="add-to-cart-btn" onclick="addToCart(${medicine.id})" ${isOutOfStock ? 'disabled' : ''}>
                         <i class="fas fa-shopping-cart"></i>
                         <span>${isOutOfStock ? 'غير متوفر' : 'أضف'}</span>
@@ -145,79 +72,42 @@ function renderMedicines(medicinesToRender = allMedicines) {
                 </div>
             </div>
         `;
-        
         medicinesGrid.appendChild(card);
     });
 }
 
 function getManufacturerClass(manufacturer) {
-    const classMap = {
-        'Domina': 'domina',
-        'Medico': 'medico',
-        'Celia': 'celia',
-        'Barakat': 'barakat',
-        'Lama Pharma': 'lama'
-    };
+    const classMap = { 'Domina': 'domina', 'Medico': 'medico', 'Celia': 'celia', 'Barakat': 'barakat', 'Lama Pharma': 'lama' };
     return classMap[manufacturer] || '';
 }
 
 function addToCart(medicineId) {
     const medicine = allMedicines.find(m => m.id === medicineId);
-    if (!medicine) return;
-    
-    const existingItem = cart.find(item => item.id === medicineId);
-    
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({ ...medicine, quantity: 1 });
-    }
-    
-    showNotification(`${medicine.name_ar} تمت إضافته إلى السلة`);
+    if (medicine) showNotification(`${medicine.name_ar} تمت إضافته إلى السلة`);
 }
 
 function showNotification(message) {
     const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: linear-gradient(135deg, #1E90FF, #FF6B6B);
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        font-family: 'Cairo', sans-serif;
-    `;
+    notification.style.cssText = 'position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #1E90FF, #FF6B6B); color: white; padding: 1rem 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; font-family: "Cairo", Arial, sans-serif;';
     notification.textContent = message;
     document.body.appendChild(notification);
-    
     setTimeout(() => notification.remove(), 3000);
 }
 
 function setupEventListeners() {
     const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', handleSearch);
-    }
+    if (searchInput) searchInput.addEventListener('input', handleSearch);
 }
 
 function handleSearch(event) {
     const searchTerm = event.target.value.toLowerCase().trim();
-    
     if (!searchTerm) {
         renderMedicines();
         return;
     }
-    
     const filtered = allMedicines.filter(medicine => 
-        medicine.name_ar.includes(searchTerm) ||
-        medicine.name_en.toLowerCase().includes(searchTerm) ||
-        medicine.description.includes(searchTerm) ||
-        medicine.manufacturer.toLowerCase().includes(searchTerm)
+        medicine.name_ar.includes(searchTerm) || medicine.description.includes(searchTerm) || medicine.manufacturer.toLowerCase().includes(searchTerm)
     );
-    
     renderMedicines(filtered);
 }
 
@@ -233,7 +123,6 @@ function filterByManufacturer(manufacturer) {
 function renderManufacturerFilter() {
     const filterContainer = document.getElementById('manufacturerFilter');
     if (!filterContainer) return;
-    
     filterContainer.innerHTML = '';
     
     const allBtn = document.createElement('button');
@@ -260,9 +149,3 @@ function renderManufacturerFilter() {
         filterContainer.appendChild(btn);
     });
 }
-
-window.Al_Fawaz = {
-    getMedicines: () => allMedicines,
-    getManufacturers: () => allManufacturers,
-    getCart: () => cart
-};
