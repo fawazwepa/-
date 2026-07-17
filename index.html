@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تطبيق مستودع الفواز للأدوية البشرية - Al-Fawaz Pharmaceutical Warehouse">
+    <title>مستودع الفواز - الأدوية البشرية</title>
+    
+    <!-- Google Fonts - Arabic Support -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <i class="fas fa-pills"></i>
+                <span>مستودع الفواز</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="#" class="nav-link">الرئيسية</a></li>
+                <li><a href="#" class="nav-link">الأدوية</a></li>
+                <li><a href="#" class="nav-link">الشركات</a></li>
+                <li><a href="#" class="nav-link">السلة</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <h1>مستودع الفواز للأدوية البشرية</h1>
+            <p>اكتشف أفضل الأدوية مع أسعار تنافسية وخدمة متميزة</p>
+        </div>
+    </header>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="ابحث عن الدواء..."
+                    dir="rtl"
+                >
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <!-- Manufacturer Filter -->
+            <div class="filter-section">
+                <h3>تصفية حسب الشركة المصنعة</h3>
+                <div class="manufacturer-filter" id="manufacturerFilter">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Medicines Grid -->
+            <section class="medicines-section">
+                <h2>الأدوية المتاحة</h2>
+                <div class="medicines-grid" id="medicinesGrid">
+                    <!-- Medicine cards will be inserted here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>حول المستودع</h4>
+                <p>مستودع الفواز متخصص في توفير الأدوية البشرية عالية الجودة من أفضل الشركات العالمية.</p>
+            </div>
+            <div class="footer-section">
+                <h4>التواصل</h4>
+                <p>
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/qr/2LF3PO7NH3PNF1">WhatsApp</a>
+                </p>
+                <p>
+                    <i class="fab fa-facebook"></i>
+                    <a href="https://www.facebook.com/share/1EKasNNroD/">Facebook</a>
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>المشروع</h4>
+                <p>Google Cloud Project: al-fawaz-a-warehouse</p>
+                <p>Project ID: 406977991839</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 مستودع الفواز. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/app.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/manufacturers.js"></script>
+    <script src="js/appsheet-connector.js"></script>
+</body>
+</html>

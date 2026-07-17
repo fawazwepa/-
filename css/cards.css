@@ -1,0 +1,263 @@
+.medicine-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.medicine-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.98) 100%);
+    z-index: 1;
+}
+
+.medicine-card::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 200%;
+    height: 200%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.12;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.medicine-card.domina::after {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="%231E90FF" stroke-width="3"/><text x="100" y="110" font-size="40" font-weight="bold" fill="%231E90FF" text-anchor="middle">D</text></svg>');
+}
+
+.medicine-card.medico::after {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect x="20" y="20" width="160" height="160" rx="20" fill="none" stroke="%23FF6B6B" stroke-width="3"/><text x="100" y="115" font-size="40" font-weight="bold" fill="%23FF6B6B" text-anchor="middle">M</text></svg>');
+}
+
+.medicine-card.celia::after {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 20 L150 170 L50 170 Z" fill="none" stroke="%2351CF66" stroke-width="3" stroke-linejoin="round"/><text x="100" y="115" font-size="40" font-weight="bold" fill="%2351CF66" text-anchor="middle">C</text></svg>');
+}
+
+.medicine-card.barakat::after {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="%23FFD700" stroke-width="3"/><circle cx="100" cy="100" r="50" fill="none" stroke="%23FFD700" stroke-width="3"/><text x="100" y="115" font-size="40" font-weight="bold" fill="%23FFD700" text-anchor="middle">B</text></svg>');
+}
+
+.medicine-card.lama::after {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M50 100 Q100 50 150 100 Q100 150 50 100" fill="none" stroke="%239370DB" stroke-width="3" stroke-linejoin="round"/><text x="100" y="115" font-size="40" font-weight="bold" fill="%239370DB" text-anchor="middle">L</text></svg>');
+}
+
+.card-content {
+    position: relative;
+    z-index: 3;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    flex-grow: 1;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.card-brand {
+    display: inline-block;
+    background: var(--light-color);
+    color: var(--dark-color);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.medicine-card.domina .card-brand {
+    background: rgba(30, 144, 255, 0.1);
+    color: #1E90FF;
+}
+
+.medicine-card.medico .card-brand {
+    background: rgba(255, 107, 107, 0.1);
+    color: #FF6B6B;
+}
+
+.medicine-card.celia .card-brand {
+    background: rgba(81, 207, 102, 0.1);
+    color: #51CF66;
+}
+
+.medicine-card.barakat .card-brand {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+.medicine-card.lama .card-brand {
+    background: rgba(147, 112, 219, 0.1);
+    color: #9370DB;
+}
+
+.card-bonus {
+    background: linear-gradient(135deg, #FF6B6B, #FF8C42);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-align: center;
+    min-width: 50px;
+}
+
+.medicine-name {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--dark-color);
+    margin: var(--spacing-md) 0;
+    line-height: 1.4;
+}
+
+.medicine-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: #666;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.detail-value {
+    color: #888;
+}
+
+.medicine-description {
+    font-size: var(--font-size-sm);
+    color: #777;
+    line-height: 1.4;
+    margin: var(--spacing-md) 0;
+}
+
+.quantity-status {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.quantity-status.in-stock {
+    background: rgba(81, 207, 102, 0.1);
+    color: #51CF66;
+}
+
+.quantity-status.low-stock {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+.quantity-status.out-of-stock {
+    background: rgba(255, 107, 107, 0.1);
+    color: #FF6B6B;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+}
+
+.medicine-price {
+    font-size: var(--font-size-lg);
+    font-weight: 900;
+    color: var(--primary-color);
+}
+
+.price-currency {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+}
+
+.add-to-cart-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+}
+
+.add-to-cart-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.medicine-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.medicine-card:hover .card-bonus {
+    animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.expiry-warning {
+    background: linear-gradient(135deg, #FFD700, #FF8C42);
+    color: #333;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.expiry-warning i {
+    font-size: var(--font-size-lg);
+}

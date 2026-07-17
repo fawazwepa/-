@@ -1,0 +1,22 @@
+{
+  "manufacturers": [
+    {
+      "id": 1,
+      "name": "Domina",
+      "name_ar": "دومينا",
+      "color": "#1E90FF"
+    },
+    {
+      "id": 2,
+      "name": "Medico",
+      "name_ar": "ميديكو",
+      "color": "#FF6B6B"
+    },
+    {
+      "id": 3,
+      "name": "Celia",
+      "name_ar": "سيليا",
+      "color": "#51CF66"
+    }
+  ]
+}
